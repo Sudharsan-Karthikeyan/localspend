@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#4FB89F</color>
+    <color name="primary_dark">#2F8C76</color>
+    <color name="income">#66BB6A</color>
+    <color name="expense">#EF7B7B</color>
+    <color name="swatch_ring">#FFFFFFFF</color>
+    <color name="widget_bg">#FF26282E</color>
+    <color name="widget_text">#FFF2F2F2</color>
+    <color name="widget_subtext">#FFB8B8C0</color>
+    <color name="calendar_income">#FF5BD19B</color>
+    <color name="calendar_expense">#FFEF5350</color>
+
+    <color name="background">#0F1413</color>
+    <color name="surface">#1A201F</color>
+    <color name="outline">#2B3432</color>
+    <color name="hero_bg">#1F3A34</color>
+    <color name="icon_circle">#27302E</color>
+    <color name="on_surface">#E6ECEA</color>
+    <color name="on_surface_variant">#A5B0AC</color>
+</resources>

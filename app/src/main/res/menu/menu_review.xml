@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_toggle_ignored"
+        android:title="@string/show_ignored"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_add_all"
+        android:title="@string/review_add_all"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_senders"
+        android:title="@string/senders_title"
+        app:showAsAction="never" />
+</menu>

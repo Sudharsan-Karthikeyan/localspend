@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#1B6B5A</color>
+    <color name="primary_dark">#0F4A3E</color>
+    <color name="accent">#F2A541</color>
+    <color name="income">#2E7D32</color>
+    <color name="expense">#C62828</color>
+    <color name="warning">#E08A00</color>
+    <color name="swatch_ring">#DE000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="widget_bg">#FFFFFFFF</color>
+    <color name="widget_text">#FF1C1B1F</color>
+    <color name="widget_subtext">#FF625B71</color>
+    <color name="calendar_income">#FF2E9E6B</color>
+    <color name="calendar_expense">#FFE53935</color>
+
+    <!-- Surfaces: a soft off-white page with white cards and a hairline outline -->
+    <color name="background">#F4F7F6</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="outline">#E0E7E4</color>
+    <color name="hero_bg">#DDEFE9</color>
+    <color name="icon_circle">#EEF3F1</color>
+    <color name="on_surface">#1B1F1E</color>
+    <color name="on_surface_variant">#5B6561</color>
+</resources>

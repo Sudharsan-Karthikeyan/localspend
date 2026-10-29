@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_search"
+        android:title="@string/menu_search"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_calendar"
+        android:title="@string/menu_calendar"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_recurring"
+        android:title="@string/menu_recurring"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_add_widget"
+        android:title="@string/menu_add_widget"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_history"
+        android:title="@string/menu_history"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_categories"
+        android:title="@string/menu_categories"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_review"
+        android:title="@string/review_title"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_messages"
+        android:title="@string/menu_messages"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_import_sms"
+        android:title="@string/menu_import_sms"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_settings"
+        android:title="@string/menu_settings"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_about"
+        android:title="@string/menu_about"
+        app:showAsAction="never" />
+</menu>

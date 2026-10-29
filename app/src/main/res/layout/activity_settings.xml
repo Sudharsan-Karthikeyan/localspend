@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Currency -->
+            <TextView
+                style="@style/SectionHeader"
+                android:text="@string/currency" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/show_amounts_in"
+                    android:textAppearance="?attr/textAppearanceBody1" />
+
+                <Spinner
+                    android:id="@+id/spDisplayCurrency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/show_amounts_in_help"
+                android:textAppearance="?attr/textAppearanceCaption" />
+
+            <!-- Budgets -->
+            <TextView
+                style="@style/SectionHeader"
+                android:text="@string/budgets" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/spOverallCurrency"
+                    android:layout_width="wrap_content"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="8dp"
+                    android:contentDescription="@string/currency" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilBudget"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="@string/overall_monthly_budget">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etBudget"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberDecimal" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <Button
+                    android:id="@+id/btnSaveBudget"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="@string/save" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/overall_budget_help"
+                android:textAppearance="?attr/textAppearanceCaption" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/warn_at"
+                    android:textAppearance="?attr/textAppearanceBody1" />
+
+                <Spinner
+                    android:id="@+id/spWarn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="48dp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnCategoryBudgets"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/set_category_budgets" />
+
+            <!-- Notifications -->
+            <TextView
+                style="@style/SectionHeader"
+                android:text="@string/notifications" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swNotifyTransactions"
+                style="@style/SettingSwitch"
+                android:text="@string/notify_new_transactions" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swNotifyBudgets"
+                style="@style/SettingSwitch"
+                android:text="@string/notify_budget_alerts" />
+
+            <TextView
+                android:id="@+id/tvNotificationsBlocked"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/selectableItemBackground"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="@string/notifications_blocked"
+                android:textAppearance="?attr/textAppearanceBody2"
+                android:textColor="@color/expense"
+                android:visibility="gone" />
+
+            <!-- Categorisation -->
+            <TextView
+                style="@style/SectionHeader"
+                android:text="@string/categorisation" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swBuiltInKeywords"
+                style="@style/SettingSwitch"
+                android:text="@string/use_built_in_keywords" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/use_built_in_keywords_help"
+                android:textAppearance="?attr/textAppearanceCaption" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnManageCategories"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/manage_categories" />
+
+                <Button
+                    android:id="@+id/btnRecategorise"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/recategorise_go" />
+            </LinearLayout>
+
+            <!-- Privacy and backup -->
+            <TextView
+                style="@style/SectionHeader"
+                android:text="@string/privacy_and_backup" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swAppLock"
+                style="@style/SettingSwitch"
+                android:text="@string/lock_switch" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lock_switch_help"
+                android:textAppearance="?attr/textAppearanceCaption" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swLockBiometric"
+                style="@style/SettingSwitch"
+                android:text="@string/lock_biometric_switch"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btnChangePin"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lock_change_pin"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/btnExportCsv"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/export_csv" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/export_csv_help"
+                android:textAppearance="?attr/textAppearanceCaption" />
+
+            <!-- Exchange rates -->
+            <TextView
+                style="@style/SectionHeader"
+                android:text="@string/exchange_rates" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swOnlineRates"
+                style="@style/SettingSwitch"
+                android:text="@string/online_rates" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/online_rates_help"
+                android:textAppearance="?attr/textAppearanceCaption" />
+
+            <!-- SMS -->
+            <TextView
+                style="@style/SectionHeader"
+                android:text="@string/sms_messages" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/swStoreSms"
+                style="@style/SettingSwitch"
+                android:text="@string/store_sms_text" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/store_sms_text_help"
+                android:textAppearance="?attr/textAppearanceCaption" />
+
+            <TextView
+                android:id="@+id/tvStoredCount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textAppearance="?attr/textAppearanceBody2" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="@string/sender_check_help"
+                android:textAppearance="?attr/textAppearanceCaption" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnReviewMessages"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/review_title" />
+
+                <Button
+                    android:id="@+id/btnSenders"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/senders_title" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnViewMessages"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/view_messages" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LocalSpend</string>
+
+    <string name="menu_history">History</string>
+    <string name="menu_import_sms">Import from SMS</string>
+    <string name="menu_about">Privacy and about</string>
+    <string name="menu_categories">Categories and budgets</string>
+    <string name="menu_messages">SMS messages</string>
+    <string name="menu_settings">Settings</string>
+
+    <string name="sms_banner_title">Automatic tracking is off</string>
+    <string name="sms_banner_body">Allow SMS access and LocalSpend will pick up bank transaction messages on this device. Messages are read locally and never leave your phone.</string>
+    <string name="sms_banner_enable">Enable SMS tracking</string>
+
+    <string name="income_line">Income: %1$s</string>
+    <string name="last_six_months">Last 6 months</string>
+    <string name="by_category">By category</string>
+    <string name="recent_transactions">Recent transactions</string>
+    <string name="view_all">View all</string>
+    <string name="no_data">No transactions yet. Tap + to add one, or enable SMS tracking.</string>
+
+    <string name="add_transaction">Add transaction</string>
+    <string name="edit_transaction">Edit transaction</string>
+    <string name="type_expense">Expense</string>
+    <string name="type_income">Income</string>
+    <string name="hint_amount">Amount</string>
+    <string name="hint_merchant">Merchant or description</string>
+    <string name="label_category">Category</string>
+    <string name="label_date">Date</string>
+    <string name="save">Save</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="delete_confirm_title">Delete this transaction?</string>
+    <string name="delete_confirm_body">This removes it from your local database.</string>
+    <string name="error_amount">Enter an amount greater than zero</string>
+    <string name="error_merchant">Enter a merchant or description</string>
+
+    <string name="history">History</string>
+    <string name="category_comparison">Category comparison</string>
+    <string name="transactions">Transactions</string>
+    <string name="no_transactions_month">No transactions in this month.</string>
+    <string name="prev_month">Previous month</string>
+    <string name="next_month">Next month</string>
+    <string name="spent_in_month">Spent in %1$s</string>
+    <string name="last_amount">Last: %1$s</string>
+
+    <string name="import_done">Scanned %1$d messages, added %2$d transactions.</string>
+    <string name="import_denied">SMS permission denied. You can still add expenses manually.</string>
+    <string name="import_range_title">Import messages from\u2026</string>
+    <string name="import_range_3">The last 3 months</string>
+    <string name="import_range_6">The last 6 months</string>
+    <string name="import_range_12">The last 12 months</string>
+    <string name="import_range_all">All messages</string>
+    <string name="import_started">Importing from SMS...</string>
+
+    <string name="about_title">Privacy and about</string>
+    <string name="about_body">LocalSpend stores every transaction in a database on this device only. The app uses the internet only to look up exchange rates (just two currency codes and a date are sent, and you can turn it off in Settings), so your financial data never leaves the device, and Android backup is switched off.\n\nSMS messages are read on the device to extract the amount, merchant, date and type. The complete original message is kept with its transaction so you can always check what was extracted (menu → SMS messages). You can switch this off or delete the stored messages in Settings.\n\nEach transaction keeps its own currency (dollars or rupees), and payments in other currencies are converted into your main currency at the rate of the day they happened.\n\nCategories are yours to change: rename them, recolour them, add your own, give them keywords and monthly budgets. Correct any transaction\'s category and LocalSpend remembers it for that merchant.\n\nInsights are calculated on the device and are never used for advertising.</string>
+    <string name="ok">OK</string>
+
+    <string name="source_sms">SMS</string>
+    <string name="source_manual">Manual</string>
+    <!-- Categories -->
+    <string name="categories">Categories and budgets</string>
+    <string name="categories_intro">Tap a category to rename it, change its colour, set a monthly budget or add keywords. Use + to create your own.</string>
+    <string name="new_category">New category</string>
+    <string name="new_category_option">+ New category…</string>
+    <string name="category_name">Category name</string>
+    <string name="create">Create</string>
+    <string name="add">Add</string>
+    <string name="colour">Colour</string>
+    <string name="colour_option">Colour option</string>
+    <string name="colour_selected">Selected colour</string>
+    <string name="monthly_budget">Monthly budget (optional)</string>
+    <string name="monthly_budget_help">Leave empty for no budget</string>
+    <string name="your_keywords">Your keywords</string>
+    <string name="your_keywords_help">Any merchant containing one of these words is filed here automatically. Your keywords take priority over the built-in ones.</string>
+    <string name="no_keywords">No keywords yet.</string>
+    <string name="add_keyword_hint">Add a keyword, e.g. officeworks</string>
+    <string name="built_in_keywords">Built-in keywords</string>
+    <string name="built_in_keywords_on">%1$s</string>
+    <string name="built_in_keywords_off">Switched off in Settings: %1$s</string>
+    <string name="remembered_merchants">Remembered merchants</string>
+    <string name="remembered_merchants_help">Merchants you have filed under this category. Remove one to let LocalSpend decide again.</string>
+    <string name="no_merchants">None yet. Change a transaction\'s category to teach LocalSpend.</string>
+    <string name="remove_item">Remove %1$s</string>
+    <string name="keyword_moved">Keyword moved here from %1$s</string>
+    <string name="delete_category">Delete category</string>
+    <string name="delete_category_title">Delete %1$s?</string>
+    <string name="delete_category_body">Its transactions move to Other, and its keywords and remembered merchants are removed.</string>
+    <string name="delete_category_body_builtin">Its transactions move to Other, and its keywords and remembered merchants are removed. You can bring built-in categories back from the Categories menu.</string>
+    <string name="built_in">Built-in</string>
+    <string name="custom">Custom</string>
+    <string name="budget_per_month">Budget %1$s/month</string>
+    <string name="restore_defaults">Restore built-in categories</string>
+    <string name="defaults_restored">Built-in categories restored</string>
+    <string name="recategorise_title">Re-categorise transactions</string>
+    <string name="recategorise_body">Run your current categories, keywords and remembered merchants over all past expenses? Categories you picked by hand are not changed.</string>
+    <string name="recategorise_go">Re-categorise now</string>
+    <string name="recategorise_after_toggle">Re-categorise past expenses with the new setting? Categories you picked by hand are not changed.</string>
+    <string name="not_now">Not now</string>
+    <string name="error_category_name">Enter a name</string>
+    <string name="error_category_exists">A category with this name already exists</string>
+    <string name="error_keyword">Enter a word or phrase</string>
+    <string name="error_budget">Enter an amount, or leave empty for no budget</string>
+    <string name="apply_title">Move to %1$s</string>
+    <string name="apply_only_this">Only this transaction</string>
+    <string name="apply_future">This one and future ones from %1$s</string>
+
+    <plurals name="apply_all">
+        <item quantity="one">This one and the other %1$d from %2$s (past and future)</item>
+        <item quantity="other">This one and the other %1$d from %2$s (past and future)</item>
+    </plurals>
+    <plurals name="moved_transactions">
+        <item quantity="one">Also moved %1$d other transaction to %2$s</item>
+        <item quantity="other">Also moved %1$d other transactions to %2$s</item>
+    </plurals>
+    <plurals name="moved_to_other">
+        <item quantity="one">%1$d transaction moved to Other</item>
+        <item quantity="other">%1$d transactions moved to Other</item>
+    </plurals>
+    <plurals name="recategorised">
+        <item quantity="one">%1$d transaction re-categorised</item>
+        <item quantity="other">%1$d transactions re-categorised</item>
+    </plurals>
+    <plurals name="keyword_count">
+        <item quantity="one">%1$d keyword</item>
+        <item quantity="other">%1$d keywords</item>
+    </plurals>
+    <plurals name="merchant_count">
+        <item quantity="one">%1$d merchant</item>
+        <item quantity="other">%1$d merchants</item>
+    </plurals>
+
+    <!-- Budgets and insights -->
+    <string name="budgets">Budgets</string>
+    <string name="manage">Manage</string>
+    <string name="no_budgets">No budgets yet. Set a monthly limit in Settings, or on any category.</string>
+    <string name="overall_budget">Monthly budget</string>
+    <string name="budget_of">%1$s of %2$s</string>
+    <string name="budget_left">%1$s left · %2$d%% used</string>
+    <string name="budget_over_by">Over by %1$s (%2$d%%)</string>
+    <string name="insights">Insights</string>
+
+    <!-- Original SMS -->
+    <string name="original_sms">Original SMS</string>
+    <string name="sms_from">From %1$s</string>
+    <string name="sms_received_at">Received %1$s</string>
+    <string name="unknown_sender">unknown sender</string>
+    <string name="sms_not_stored_title">Message text not stored</string>
+    <string name="sms_not_stored_body">This transaction was imported before messages were kept, or the text was deleted. Run “Import from SMS” to add it back if the message is still on your phone.</string>
+    <string name="copy_message">Copy message</string>
+    <string name="copied">Copied</string>
+    <string name="sms_messages">SMS messages</string>
+    <string name="search_messages">Search messages</string>
+    <string name="no_messages">No SMS transactions yet. Enable SMS tracking on the dashboard.</string>
+    <string name="no_messages_match">No messages match your search.</string>
+    <string name="message_header">From %1$s · %2$s</string>
+    <string name="message_extracted">%1$s · %2$s · %3$s · %4$s</string>
+    <string name="clear_messages_title">Delete stored message text</string>
+    <string name="clear_messages_body">Removes the stored text of every SMS. Your transactions stay, and the same messages will not be imported twice.</string>
+    <plurals name="messages_cleared">
+        <item quantity="one">Deleted the text of %1$d message</item>
+        <item quantity="other">Deleted the text of %1$d messages</item>
+    </plurals>
+    <plurals name="messages_stored">
+        <item quantity="one">%1$d message stored on this device</item>
+        <item quantity="other">%1$d messages stored on this device</item>
+    </plurals>
+
+    <!-- Notifications -->
+    <string name="channel_transactions">New transactions</string>
+    <string name="channel_transactions_desc">A transaction was captured from an SMS</string>
+    <string name="channel_budgets">Budget alerts</string>
+    <string name="channel_budgets_desc">Spending is close to or over a budget</string>
+    <string name="notify_spent">Spent %1$s at %2$s</string>
+    <string name="notify_received">Received %1$s from %2$s</string>
+    <string name="notify_category">Filed under %1$s. Tap to change it.</string>
+    <string name="notify_income_text">Tap to view or edit.</string>
+    <string name="notify_budget_warn_title">%1$d%% of %2$s used</string>
+    <string name="notify_budget_over_title">Over budget: %1$s</string>
+    <string name="notify_budget_text">%1$s spent of %2$s this month</string>
+    <string name="notifications_denied">Notifications are off. You can turn them on in Settings.</string>
+
+    <!-- Settings -->
+    <string name="overall_monthly_budget">Overall monthly budget</string>
+    <string name="overall_budget_help">Leave empty for no overall budget. Category budgets are set on each category.</string>
+    <string name="warn_at">Warn me when a budget reaches</string>
+    <string name="set_category_budgets">Set category budgets</string>
+    <string name="budget_saved">Monthly budget set to %1$s</string>
+    <string name="budget_removed">Monthly budget removed</string>
+    <string name="notifications">Notifications</string>
+    <string name="notify_new_transactions">New transaction captured from SMS</string>
+    <string name="notify_budget_alerts">Budget warnings and overspending</string>
+    <string name="notifications_blocked">Notifications are blocked for LocalSpend. Tap to open Android settings.</string>
+    <string name="categorisation">Categorisation</string>
+    <string name="use_built_in_keywords">Use built-in keywords</string>
+    <string name="use_built_in_keywords_help">When off, only your own keywords and remembered merchants are used; everything else goes to Other.</string>
+    <string name="manage_categories">Manage categories</string>
+    <string name="store_sms_text">Keep the original SMS text</string>
+    <string name="store_sms_text_help">Saves the full message each transaction was read from, on this device only.</string>
+    <string name="view_messages">View messages</string>
+    <!-- Sender check and review -->
+    <string name="review_title">Review messages</string>
+    <string name="review">Review</string>
+    <string name="review_intro">These messages look like transactions but did not come from a recognised bank. Add the real ones; ignore the rest. You can also trust or block a sender so you are not asked again.</string>
+    <string name="review_intro_ignored">Messages you ignored, and adverts LocalSpend skipped. You can still add any that were real transactions.</string>
+    <string name="review_empty">Nothing to review.</string>
+    <string name="review_empty_ignored">No ignored messages.</string>
+    <string name="review_extracted">Would add: %1$s · %2$s · %3$s</string>
+    <string name="review_no_amount">No amount found in this message</string>
+    <string name="show_ignored">Show ignored messages</string>
+    <string name="show_waiting">Show messages to review</string>
+    <string name="add_transaction_short">Add</string>
+    <string name="ignore">Ignore</string>
+    <string name="add_title">Add this transaction?</string>
+    <string name="add_once">Add this one</string>
+    <string name="add_and_trust">Add, and always trust %1$s</string>
+    <string name="ignore_title">Not a transaction?</string>
+    <string name="ignore_once">Ignore this one</string>
+    <string name="ignore_and_block">Ignore, and block %1$s</string>
+    <string name="added_one">Transaction added</string>
+    <string name="ignored_one">Message ignored</string>
+    <plurals name="trusted_added">
+        <item quantity="one">%2$s trusted. Added %1$d transaction.</item>
+        <item quantity="other">%2$s trusted. Added %1$d transactions.</item>
+    </plurals>
+    <plurals name="blocked_ignored">
+        <item quantity="one">%2$s blocked. Ignored %1$d message.</item>
+        <item quantity="other">%2$s blocked. Ignored %1$d messages.</item>
+    </plurals>
+    <plurals name="review_waiting">
+        <item quantity="one">%1$d message from an unrecognised sender needs checking</item>
+        <item quantity="other">%1$d messages from unrecognised senders need checking</item>
+    </plurals>
+    <string name="import_done_review">Scanned %1$d messages, added %2$d transactions. %3$d from unrecognised senders need review.</string>
+    <string name="notify_review_title">Is this a real transaction?</string>
+    <string name="notify_review_text_expense">%1$s to %2$s, from %3$s. Tap to add or ignore it.</string>
+    <string name="notify_review_text_income">%1$s from %2$s, sent by %3$s. Tap to add or ignore it.</string>
+    <string name="senders_title">Trusted and blocked senders</string>
+    <string name="senders_empty">You have not trusted or blocked any sender yet. Recognised bank sender IDs (such as CommBank, NAB, Westpac, ANZ, HDFCBK, SBIINB) are trusted automatically.</string>
+    <string name="sender_trusted">✓ Trusted: %1$s</string>
+    <string name="sender_blocked">✕ Blocked: %1$s</string>
+    <string name="sender_remove">Forget your choice for %1$s? Its messages will be checked again like any other sender\'s.</string>
+    <string name="remove">Remove</string>
+    <string name="sender_check_help">Only messages from recognised bank sender IDs are added automatically. Messages from other senders wait in Review messages; adverts are skipped.</string>
+    <!-- Currency -->
+    <string name="currency">Currency</string>
+    <string name="currency_auto">Automatic: the currency most of my transactions use</string>
+    <string name="fx_list_estimated">≈ %1$s at ~%2$s (estimated rate)</string>
+    <string name="fx_list_exact">≈ %1$s at %2$s</string>
+    <string name="exchange_rates">Exchange rates</string>
+    <string name="online_rates">Look up real exchange rates</string>
+    <string name="online_rates_help">Used to convert payments in another currency on the day they happened. Only the two currency codes and the date are sent, never amounts, merchants or messages. Turn off to type rates yourself.</string>
+    <string name="fx_note_none">No rate for this day yet. Connect to the internet, or type the rate from your bank statement.</string>
+    <string name="fx_title">Exchange into %1$s</string>
+    <string name="fx_hint_rate">Rate: %1$s per %2$s</string>
+    <string name="fx_note_exact">Your rate for %1$s.</string>
+    <string name="fx_note_nearby">Estimated from the rate you saved on %1$s. Type the real rate for this day to correct it.</string>
+    <string name="fx_error_rate">Enter a rate above zero.</string>
+    <string name="currency_auto_short">Automatic</string>
+    <string name="currency_no_data">%1$s (no transactions yet)</string>
+    <string name="currency_title">Showing %1$s</string>
+    <string name="currency_switch_desc">Change currency</string>
+    <string name="show_amounts_in">Show totals in</string>
+    <string name="show_amounts_in_help">Rupee and dollar spending are always added up separately. Automatic switches to the currency of your latest transaction; you can also switch on the dashboard.</string>
+    <string name="no_category_spending">No spending recorded in %1$s yet.</string>
+    <string name="showing_category_month">Nothing spent in %1$s yet, so this shows %2$s.</string>
+    <string name="see_month_details">See %1$s in History</string>
+    <!-- Month picked on the chart -->
+    <string name="range_3">3 mo</string>
+    <string name="range_6">6 mo</string>
+    <string name="range_12">12 mo</string>
+    <string name="range_tax">Tax year</string>
+    <string name="chart_hint">Tap a month to see it in full</string>
+    <string name="chart_description">Monthly spending: %1$s. Tap a month to view it.</string>
+    <string name="back_to_month">← Back to %1$s</string>
+    <string name="viewing_month">%1$s (past month)</string>
+    <string name="transactions_in_month">Transactions in %1$s</string>
+    <string name="view_month">View month</string>
+    <string name="filter_active">Showing only %1$s · tap to show all</string>
+    <string name="transactions_in_category">%1$s transactions</string>
+    <string name="no_category_transactions">No %1$s transactions in this month.</string>
+
+    <!-- Calendar -->
+    <string name="calendar">Calendar</string>
+    <string name="menu_calendar">Calendar</string>
+    <string name="calendar_expenses">Expenses</string>
+    <string name="calendar_total">Total</string>
+    <plurals name="calendar_not_counted">
+        <item quantity="one">%1$d payment in another currency is not counted yet: its exchange rate could not be fetched. Check your connection.</item>
+        <item quantity="other">%1$d payments in another currency are not counted yet: their exchange rates could not be fetched. Check your connection.</item>
+    </plurals>
+    <string name="calendar_day_empty">No transactions on this day.</string>
+    <string name="calendar_add_here">Add transaction on this day</string>
+    <string name="calendar_day_summary">In %1$s · Out %2$s</string>
+
+    <!-- Recurring payments -->
+    <string name="menu_recurring">Recurring payments</string>
+    <string name="recurring_title">Recurring payments</string>
+    <string name="recurring_empty">Nothing repeats yet. When you add a transaction, tap Repeat / Instalment to make it repeat.</string>
+    <string name="recurring_section_repeat">Repeat (%1$d)</string>
+    <string name="recurring_section_installment">Instalments (%1$d)</string>
+    <string name="review_add_all">Add all waiting messages</string>
+    <string name="review_add_all_title">Add all waiting messages?</string>
+    <string name="review_add_all_body">Every message in the waiting list will be added as a transaction. Use this if they are all from your banks.</string>
+    <string name="review_added_many">Added %1$d transactions</string>
+    <string name="recurrence_button">Repeat / Instalment</string>
+    <string name="recurrence_repeat">Repeat</string>
+    <string name="recurrence_installment">Instalment</string>
+    <string name="recurrence_none">No repeat</string>
+    <string name="recurrence_how_often">How often</string>
+    <string name="recurrence_repeat_title">Repeat this payment</string>
+    <string name="recurrence_installment_title">Instalment plan</string>
+    <string name="recurrence_stop_hint">Stop after this many payments (optional)</string>
+    <string name="recurrence_installment_hint">Number of payments (including this one)</string>
+    <string name="recurrence_set">Set</string>
+    <string name="recurrence_error_installments">Enter a number from 2 to 360</string>
+    <string name="recurrence_error_stop">Enter a number from 2 to 360, or leave empty</string>
+    <string name="recurrence_summary_repeat">Repeats · %1$s</string>
+    <string name="recurrence_summary_repeat_limited">Repeats · %1$s · %2$d payments</string>
+    <string name="recurrence_summary_installment">Instalments · %1$s · %2$d payments</string>
+    <string name="recurrence_next">Next: %1$s</string>
+    <string name="recurrence_progress">%1$d of %2$d paid</string>
+    <string name="recurrence_paid_count">%1$d paid so far</string>
+    <string name="recurrence_paused">Paused</string>
+    <string name="recurrence_finished">Finished</string>
+    <string name="recurring_pause">Pause</string>
+    <string name="recurring_resume">Resume</string>
+    <string name="recurring_delete_title">Delete this plan?</string>
+    <string name="recurring_delete_body">No more payments will be added. Transactions already added are kept.</string>
+    <string name="source_recurring">Recurring</string>
+
+    <!-- Home-screen widget and quick add -->
+    <string name="widget_description">See today\'s spending and add an expense in two taps</string>
+    <string name="widget_name">LocalSpend quick add</string>
+    <string name="menu_add_widget">Add home-screen widget</string>
+    <string name="widget_how_to">Press and hold an empty spot on your home screen, tap Widgets, then find “LocalSpend quick add” and drag it onto the screen.</string>
+    <string name="widget_requested">Choose where to place the widget</string>
+    <string name="widget_spent_today">Spent today</string>
+    <string name="widget_add">+ Add expense</string>
+    <string name="widget_add_description">Add an expense</string>
+    <string name="widget_none_today">No expenses yet</string>
+    <plurals name="widget_expenses_today">
+        <item quantity="one">%1$d expense</item>
+        <item quantity="other">%1$d expenses</item>
+    </plurals>
+    <string name="quick_add_title">Add expense</string>
+    <string name="quick_note_hint">Note, e.g. coffee (optional)</string>
+    <string name="quick_category_auto">Automatic</string>
+    <string name="quick_expense_merchant">Quick expense</string>
+    <string name="quick_added">Added %1$s</string>
+    <string name="lock_title">LocalSpend is locked</string>
+    <string name="lock_subtitle">Enter your PIN to continue</string>
+    <string name="lock_pin_hint">PIN</string>
+    <string name="lock_unlock">Unlock</string>
+    <string name="lock_use_fingerprint">Use fingerprint</string>
+    <string name="lock_use_pin">Use PIN</string>
+    <string name="lock_wrong_pin">Wrong PIN</string>
+    <string name="lock_try_again">Too many tries. Try again in %1$d s</string>
+    <string name="privacy_and_backup">Privacy and backup</string>
+    <string name="lock_switch">Lock the app with a PIN</string>
+    <string name="lock_switch_help">Asks for your PIN when the app opens or after you have been away. There is no way to recover a forgotten PIN: clearing the app\'s data removes the lock and your transactions.</string>
+    <string name="lock_biometric_switch">Unlock with fingerprint</string>
+    <string name="lock_change_pin">Change PIN</string>
+    <string name="lock_set_pin_title">Choose a PIN</string>
+    <string name="lock_current_pin_title">Enter your PIN to turn the lock off</string>
+    <string name="lock_enter_new_pin">New PIN (4 to 8 digits)</string>
+    <string name="lock_confirm_pin">Confirm PIN</string>
+    <string name="lock_pin_invalid">The PIN must be 4 to 8 digits</string>
+    <string name="lock_pin_mismatch">The two PINs do not match</string>
+    <string name="lock_is_on">PIN lock is on</string>
+    <string name="lock_is_off">PIN lock is off</string>
+    <string name="export_csv">Export transactions to CSV</string>
+    <string name="export_csv_help">Saves every transaction as a spreadsheet file you choose where to keep. It never leaves your phone unless you move it.</string>
+    <string name="export_done">Exported %1$d transactions</string>
+    <string name="export_failed">Could not save the file</string>
+    <string name="export_none">There are no transactions to export</string>
+    <string name="menu_search">Search</string>
+    <string name="search_title">Search</string>
+    <string name="search_hint">Search merchant, category or message</string>
+    <string name="search_any_category">Any category</string>
+    <string name="search_type_any">Income and expenses</string>
+    <string name="search_type_expense">Expenses only</string>
+    <string name="search_type_income">Income only</string>
+    <string name="search_from">From date</string>
+    <string name="search_to">To date</string>
+    <string name="search_from_value">From %1$s</string>
+    <string name="search_to_value">To %1$s</string>
+    <string name="search_min">Min amount</string>
+    <string name="search_max">Max amount</string>
+    <string name="search_clear">Clear filters</string>
+    <string name="search_count">%1$d found</string>
+    <string name="search_none">Nothing matches these filters</string>
+    <string name="search_amounts_note">Amounts are compared in each transaction\'s own currency</string>
+    <string name="budget_scope_title">Apply this budget</string>
+    <string name="budget_scope_from_this">From %1$s onwards (earlier months keep their budget)</string>
+    <string name="budget_scope_all">This month and all earlier months (replaces their budgets)</string>
+    <string name="budget_unchanged">Budget unchanged</string>
+    <string name="budgets_for_month">Budgets for %1$s</string>
+    <string name="budgets_for_month_help">The budget each month had. Leave a field empty for no budget.</string>
+    <string name="budgets_past_note">You are editing a past month: only that month changes.</string>
+    <string name="budgets_overall">Overall monthly budget</string>
+    <string name="budgets_saved">Budgets saved</string>
+    <string name="budgets_manage_categories">Manage categories</string>
+    <string name="biometric_unavailable">Add a fingerprint in your phone settings first</string>
+</resources>
