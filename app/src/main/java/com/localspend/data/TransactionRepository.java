@@ -268,6 +268,19 @@ public class TransactionRepository {
         NETWORK.execute(work);
     }
 
+    /** Converts budgets set in another currency into {@code main} (see BudgetRepository). */
+    public void rebaseBudgets(Currency main) {
+        BudgetRepository.getInstance(appContext).rebaseTo(main, this);
+    }
+
+    /** Tells the open screen to refresh (used when a fetched rate changes what it shows). */
+    public static void notifyRatesUpdated() {
+        Runnable listener = onRatesUpdated;
+        if (listener != null) {
+            com.localspend.util.Background.main(listener);
+        }
+    }
+
     /** Called (on the main thread) after new rates changed some totals; null to stop. */
     public static void setOnRatesUpdated(Runnable listener) {
         onRatesUpdated = listener;

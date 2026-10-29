@@ -285,6 +285,9 @@
     <!-- Calendar -->
     <string name="calendar">Calendar</string>
     <string name="menu_calendar">Calendar</string>
+    <string name="calendar_legend_in">■ More came in</string>
+    <string name="calendar_legend_out">■ More went out</string>
+    <string name="calendar_legend_quiet">■ Quiet</string>
     <string name="calendar_expenses">Expenses</string>
     <string name="calendar_total">Total</string>
     <plurals name="calendar_not_counted">
@@ -392,7 +395,7 @@
     <string name="search_clear">Clear filters</string>
     <string name="search_count">%1$d found</string>
     <string name="search_none">Nothing matches these filters</string>
-    <string name="search_amounts_note">Amounts are compared in each transaction\'s own currency</string>
+    <string name="search_amounts_note">Min and max are in %1$s; other currencies are converted at their stored rate</string>
     <string name="budget_scope_title">Apply this budget</string>
     <string name="budget_scope_from_this">From %1$s onwards (earlier months keep their budget)</string>
     <string name="budget_scope_all">This month and all earlier months (replaces their budgets)</string>

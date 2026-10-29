@@ -151,6 +151,38 @@
             android:textColor="@color/warning"
             android:visibility="gone" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="14dp"
+                android:text="@string/calendar_legend_in"
+                android:textAppearance="?attr/textAppearanceCaption"
+                android:textColor="@color/calendar_income" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="14dp"
+                android:text="@string/calendar_legend_out"
+                android:textAppearance="?attr/textAppearanceCaption"
+                android:textColor="@color/calendar_expense" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/calendar_legend_quiet"
+                android:textAppearance="?attr/textAppearanceCaption"
+                android:textColor="@color/calendar_quiet" />
+        </LinearLayout>
+
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="0dp"

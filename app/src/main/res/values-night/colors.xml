@@ -8,6 +8,7 @@
     <color name="widget_bg">#FF26282E</color>
     <color name="widget_text">#FFF2F2F2</color>
     <color name="widget_subtext">#FFB8B8C0</color>
+    <color name="calendar_quiet">#FF3A3A3C</color>
     <color name="calendar_income">#FF5BD19B</color>
     <color name="calendar_expense">#FFEF5350</color>
 

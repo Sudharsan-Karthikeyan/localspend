@@ -39,7 +39,7 @@ public class MonthCalendarView extends View {
 
     private static final String[] MONTHS = {"Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug",
             "Sep", "Oct", "Nov", "Dec"};
-    private static final String[] WEEKDAYS = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
+    private static final String[] WEEKDAYS = {"MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"};
 
     private final float density;
     private final Paint tilePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
@@ -50,6 +50,7 @@ public class MonthCalendarView extends View {
     private final Paint amountPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
     private final RectF rect = new RectF();
 
+    private final int quietTile;
     private final int textPrimary;
     private final int textSecondary;
     private final int primary;
@@ -77,6 +78,7 @@ public class MonthCalendarView extends View {
 
         textPrimary = resolveColor(context, android.R.attr.textColorPrimary, 0xFF212121);
         textSecondary = resolveColor(context, android.R.attr.textColorSecondary, 0xFF757575);
+        quietTile = ContextCompat.getColor(context, R.color.calendar_quiet);
         primary = ContextCompat.getColor(context, R.color.primary);
         incomeColor = ContextCompat.getColor(context, R.color.calendar_income);
         expenseColor = ContextCompat.getColor(context, R.color.calendar_expense);
@@ -124,7 +126,7 @@ public class MonthCalendarView extends View {
         Calendar c = Calendar.getInstance();
         c.clear();
         c.set(year, month, 1);
-        return c.get(Calendar.DAY_OF_WEEK) - Calendar.SUNDAY;   // Sunday = 0
+        return (c.get(Calendar.DAY_OF_WEEK) + 5) % 7;   // Monday = 0
     }
 
     private int daysInMonth() {
@@ -206,12 +208,13 @@ public class MonthCalendarView extends View {
                 if (current) {
                     // Green when more came in than went out, red otherwise, grey when nothing
                     // happened. A bigger difference gives a deeper colour.
-                    int base = textPrimary;
-                    int alpha = 16;
+                    int base = quietTile;
+                    int alpha = 255;
                     if (active) {
                         base = net > 0 ? incomeColor : expenseColor;
                         double ratio = maxNet > 0 ? Math.sqrt((double) Math.abs(net) / maxNet) : 0;
-                        alpha = 46 + (int) (ratio * 84);
+                        ratio = Math.max(0.25, ratio);
+                        alpha = (int) ((0.25 + ratio * 0.55) * 255);
                     }
                     tilePaint.setColor(withAlpha(base, alpha));
                     canvas.drawRoundRect(rect, radius, radius, tilePaint);

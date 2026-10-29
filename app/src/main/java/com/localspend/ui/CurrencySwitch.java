@@ -28,6 +28,8 @@ final class CurrencySwitch {
     static Currency resolve(AppSettings settings, TransactionRepository repository) {
         Currency main = repository.resolveMainCurrency(settings);
         repository.ensureConverted(main);   // everything else is converted into it
+        // Budgets set in another currency are converted, not reused as the same number.
+        repository.rebaseBudgets(main);
         return main;
     }
 

@@ -8,8 +8,12 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.localspend.logic.BudgetHistory;
 import com.localspend.model.Category;
+import com.localspend.model.Currency;
+import com.localspend.logic.ExchangeRates;
 
+import java.math.BigDecimal;
 import java.util.Calendar;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -93,6 +97,81 @@ public class BudgetRepository {
         }
         save(key, history);
         syncCurrent(key, history);
+    }
+
+
+    /**
+     * Budgets keep the currency they were set in. When the dashboard is in another currency they
+     * are converted at the current rate (US$500 becomes about its worth in rupees, not ₹500) and
+     * from then on are in the dashboard currency. With no rate known yet nothing changes; the rate
+     * is fetched in the background (when online rates are on) and the screen refreshes.
+     * Call from the database thread.
+     */
+    public synchronized void rebaseTo(Currency main, TransactionRepository transactions) {
+        AppSettings settings = new AppSettings(context);
+        BudgetHistory history = load();
+        ExchangeRates rates = null;
+        java.util.List<Currency> missing = new java.util.ArrayList<>();
+        java.util.List<String> keys = new java.util.ArrayList<>();
+        keys.add(BudgetHistory.OVERALL);
+        for (Category c : categories.getCatalog().all()) {
+            keys.add(c.getKey());
+        }
+        for (String key : keys) {
+            Category category = BudgetHistory.OVERALL.equals(key) ? null : categories.getCatalog().find(key);
+            Currency from = category == null ? settings.getOverallBudgetCurrency()
+                    : category.getBudgetCurrency();
+            Map<Integer, Long> entries = history.entriesFor(key);
+            if (from == main || entries.isEmpty()) {
+                markBase(settings, category, main);
+                continue;
+            }
+            if (rates == null) {
+                rates = transactions.loadRates();
+            }
+            ExchangeRates.Rate rate = rates.find(from, main, System.currentTimeMillis());
+            if (rate == null) {
+                if (!missing.contains(from)) {
+                    missing.add(from);
+                }
+                continue;
+            }
+            Map<Integer, Long> converted = new LinkedHashMap<>();
+            for (Map.Entry<Integer, Long> e : entries.entrySet()) {
+                converted.put(e.getKey(), e.getValue() > 0
+                        ? ExchangeRates.convert(e.getValue(), rate.getValue()) : 0L);
+            }
+            BudgetHistory updated = new BudgetHistory();
+            for (Map.Entry<Integer, Long> e : converted.entrySet()) {
+                updated.putEntry(key, e.getKey(), e.getValue());
+            }
+            save(key, updated);
+            syncCurrent(key, updated);
+            markBase(settings, category, main);
+        }
+        if (!missing.isEmpty() && settings.isOnlineRatesOn()) {
+            final java.util.List<Currency> fetch = missing;
+            TransactionRepository.runOnNetwork(() -> {
+                boolean any = false;
+                for (Currency from : fetch) {
+                    any |= transactions.fetchRate(from, main, System.currentTimeMillis());
+                }
+                if (any) {
+                    TransactionRepository.notifyRatesUpdated();
+                }
+            });
+        }
+    }
+
+    private void markBase(AppSettings settings, Category category, Currency main) {
+        if (category == null) {
+            if (settings.getOverallBudgetCurrency() != main) {
+                settings.setOverallBudgetCurrency(main);
+            }
+        } else if (category.getBudgetCurrency() != main) {
+            Category latest = categories.getCatalog().find(category.getKey());
+            categories.saveCategory(latest.withBudget(latest.getBudgetCents(), main));
+        }
     }
 
     private void save(String key, BudgetHistory history) {

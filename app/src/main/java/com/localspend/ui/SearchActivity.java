@@ -53,6 +53,7 @@ public class SearchActivity extends AppCompatActivity {
     private Button btnFrom;
     private Button btnTo;
     private TextView tvCount;
+    private Currency dashboardCurrency;
     private TextView tvEmpty;
 
     private List<Transaction> everything = new ArrayList<>();
@@ -141,6 +142,10 @@ public class SearchActivity extends AppCompatActivity {
                 }
                 everything = all;
                 adapter.setMainCurrency(currency);
+                dashboardCurrency = currency;
+                ((com.google.android.material.textfield.TextInputLayout) findViewById(R.id.tilSearchMin)).setPrefixText(currency.getSymbol());
+                ((com.google.android.material.textfield.TextInputLayout) findViewById(R.id.tilSearchMax)).setPrefixText(currency.getSymbol());
+                ((TextView) findViewById(R.id.tvSearchNote)).setText(getString(R.string.search_amounts_note, currency.name()));
                 runSearch();
             });
         });
@@ -154,7 +159,8 @@ public class SearchActivity extends AppCompatActivity {
                 .setFromMillis(fromMillis)
                 .setToMillisExclusive(toDayMillis == null ? null : nextDay(toDayMillis))
                 .setMinCents(toCents(etMin))
-                .setMaxCents(toCents(etMax));
+                .setMaxCents(toCents(etMax))
+                .setAmountCurrency(dashboardCurrency);
         List<Transaction> found = filter.apply(everything);
         adapter.setItems(found);
         tvCount.setText(getString(R.string.search_count, found.size()));

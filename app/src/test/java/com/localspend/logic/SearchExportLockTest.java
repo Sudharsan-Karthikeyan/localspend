@@ -163,4 +163,27 @@ public class SearchExportLockTest {
         assertEquals(60_000, LockPolicy.lockoutRemaining(6, 0, 0));
         assertEquals(300_000, LockPolicy.lockoutRemaining(20, 0, 0));
     }
+
+    @Test
+    public void amountRangeIsComparedInTheDashboardCurrency() {
+        com.localspend.model.Currency inr = com.localspend.model.Currency.INR;
+        com.localspend.model.Currency usd = com.localspend.model.Currency.USD;
+        Transaction five = tx(500, "US shop", Category.OTHER, TransactionType.EXPENSE,
+                day(2026, Calendar.OCTOBER, 5));
+        five.setCurrency(usd);                       // US$5.00 is about INR 440
+        five.setConversion(inr, new java.math.BigDecimal("88"), 0, false, 44000);
+        Transaction fifty = tx(5000, "Local", Category.OTHER, TransactionType.EXPENSE,
+                day(2026, Calendar.OCTOBER, 6));
+        fifty.setCurrency(inr);
+        Transaction noRate = tx(300, "No rate", Category.OTHER, TransactionType.EXPENSE,
+                day(2026, Calendar.OCTOBER, 7));
+        noRate.setCurrency(usd);
+        List<Transaction> list = Arrays.asList(five, fifty, noRate);
+
+        List<Transaction> found = new TransactionFilter().setMaxCents(10000L)
+                .setAmountCurrency(inr).apply(list);
+        assertEquals(Arrays.asList(fifty), found);
+        assertEquals(Arrays.asList(five), new TransactionFilter().setMinCents(10000L)
+                .setAmountCurrency(inr).apply(list));
+    }
 }

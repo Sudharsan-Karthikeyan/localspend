@@ -234,7 +234,7 @@ without pressing Import. When the app is closed, the SMS receiver still captures
 
 - **Search** (menu → Search): finds transactions by words in the merchant, category or original
   message, and can narrow by category, income/expense, a date range and an amount range. Results
-  update as you type; tap one to edit it. Amounts are compared in each transaction's own currency.
+  update as you type; tap one to edit it. The amount range is in your dashboard currency: a US$5 or A$5 purchase is converted with its stored rate first (so it is not under a ₹100 maximum), and one with no stored rate is left out when a minimum or maximum is set.
 - **Export to CSV** (Settings → Privacy and backup): saves every transaction (date, type, merchant,
   category, amount, currency, stored conversion, source, and the original SMS) to a file you pick
   with the system file picker, so the app needs no storage permission. Text that a spreadsheet could
@@ -259,3 +259,5 @@ A budget is a history of "from this month, the budget is X" entries, so earlier 
 - **Removing** a budget in the current month only removes it from this month on; earlier months keep theirs.
 - To change or remove an earlier month's budget, open **Manage** while viewing that month. A past month changes only itself.
 - The dashboard and History show the budgets that applied in the month on screen. Budget alerts use the current month's.
+
+- **Budgets and currency:** a budget keeps the currency it was set in. If the dashboard is in another currency, the budget is converted at the current rate (US$500 becomes its rupee worth, not ₹500). With no rate yet, it is fetched in the background (if online rates are on) and the screen refreshes.

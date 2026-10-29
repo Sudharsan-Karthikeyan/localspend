@@ -1,5 +1,6 @@
 package com.localspend.logic;
 
+import com.localspend.model.Currency;
 import com.localspend.model.Transaction;
 import com.localspend.model.TransactionType;
 
@@ -20,6 +21,13 @@ public final class TransactionFilter {
     private Long toMillisExclusive;      // exclusive, null = no end
     private Long minCents;               // inclusive, null = no minimum
     private Long maxCents;               // inclusive, null = no maximum
+    private Currency amountCurrency;     // the currency the amount range is in; null = each own
+
+    /** The amount range is in this (dashboard) currency; others are converted with their stored rate. */
+    public TransactionFilter setAmountCurrency(Currency amountCurrency) {
+        this.amountCurrency = amountCurrency;
+        return this;
+    }
 
     public TransactionFilter setText(String text) {
         this.text = text == null ? "" : text.trim().toLowerCase(Locale.ROOT);
@@ -75,13 +83,21 @@ public final class TransactionFilter {
         if (toMillisExclusive != null && t.getDateMillis() >= toMillisExclusive) {
             return false;
         }
-        // Amounts are compared as they appear on the transaction, in its own currency.
-        long amount = Math.abs(t.getAmountCents());
-        if (minCents != null && amount < minCents) {
-            return false;
-        }
-        if (maxCents != null && amount > maxCents) {
-            return false;
+        if (minCents != null || maxCents != null) {
+            long amount;
+            if (amountCurrency == null) {
+                amount = Math.abs(t.getAmountCents());
+            } else if (t.canBeShownIn(amountCurrency)) {
+                amount = Math.abs(t.getAmountIn(amountCurrency));
+            } else {
+                return false;   // cannot be converted, so it cannot be said to be in range
+            }
+            if (minCents != null && amount < minCents) {
+                return false;
+            }
+            if (maxCents != null && amount > maxCents) {
+                return false;
+            }
         }
         return text.isEmpty() || textMatches(t);
     }
